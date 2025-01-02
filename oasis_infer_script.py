@@ -278,8 +278,10 @@ for data_str in data_strings:
     all_data.extend(data_list)
 
 # Convert the combined list of dictionaries to a DataFrame
-df = patients + pd.DataFrame(all_data)
-df['Patient_Name']=patients
+df = pd.DataFrame(all_data)
+df.insert(0, 'Patient_Name', patients)
+
+#df['Patient_Name']=patients
 
 # Display the DataFrame
 #import ace_tools as tools; tools.display_dataframe_to_user(name="Combined Patient Outcomes DataFrame", dataframe=df)
